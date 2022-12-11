@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+
+      <FilterComponent :store="store" />
+
+    <CatGenerator />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import CatGenerator from './components/CatGenerator';
+    import FilterComponent from './components/FilterComponent';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'App',
+        data() {
+            return {
+                store: {
+                    items: [
+                        { id: 1, name: 'Apple' },
+                        { id: 2, name: 'Banana' },
+                        { id: 3, name: 'Orange' }
+                    ]
+                }
+            }
+        },
+        components: {
+            FilterComponent,CatGenerator
+        }
+
+
+    }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
